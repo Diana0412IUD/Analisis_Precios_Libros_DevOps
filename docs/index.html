@@ -3,37 +3,233 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de precios de libros</title>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            background: #f4f6f8;
-            color: #333;
+        * {
+            box-sizing: border-box;
         }
-        h1 { color: #263b58; }
-        section {
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f9;
+            color: #263238;
+        }
+
+        header {
+            background: #263b58;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 0;
+            color: #dce5ef;
+        }
+
+        main {
+            max-width: 1050px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
             background: white;
             padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: #52677f;
+            font-size: 15px;
+            margin-top: 0;
+        }
+
+        .number {
+            color: #263b58;
+            font-size: 27px;
+            font-weight: bold;
+            margin: 10px 0 0;
+        }
+
+        .results {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .bar {
+            background: #e5eaf0;
+            height: 15px;
             border-radius: 10px;
+            margin: 12px 0 22px;
+            overflow: hidden;
+        }
+
+        .bar span {
+            display: block;
+            height: 100%;
+            background: #6385a8;
+            border-radius: 10px;
+        }
+
+        button {
+            background: #263b58;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #3c5879;
+        }
+
+        #details {
+            display: none;
+            margin-top: 20px;
+            padding: 18px;
+            background: #f3f5f9;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #657386;
+            font-size: 14px;
         }
     </style>
 </head>
+
 <body>
-    <section>
+
+    <header>
         <h1>Análisis de precios de libros</h1>
-        <h2>Proyecto de programación para análisis de datos</h2>
-        <p>Proyecto desarrollado mediante Python y web scraping.</p>
-        <p>Se analizaron 20 libros y sus precios en GBP.</p>
-        <h3>Resultados</h3>
-        <ul>
-            <li>Precio promedio: £38.05</li>
-            <li>Precio mínimo: £13.99</li>
-            <li>Precio máximo: £57.25</li>
-            <li>Registros analizados: 20</li>
-        </ul>
-        <p>Implementación de control de versiones con Git,
-        pruebas automatizadas y despliegue continuo.</p>
-    </section>
+        <p>Proyecto de programación para análisis de datos</p>
+    </header>
+
+    <main>
+
+        <section class="intro">
+            <h2>Descripción del proyecto</h2>
+            <p>
+                Este proyecto utiliza técnicas de web scraping con Python
+                para recopilar y analizar información sobre los precios
+                de libros publicados en un sitio web de práctica.
+            </p>
+            <p>
+                Los datos obtenidos se organizaron y procesaron para
+                identificar el comportamiento de los precios y presentar
+                sus principales resultados de forma visual.
+            </p>
+        </section>
+
+        <section class="metrics">
+
+            <article class="card">
+                <h3>Libros analizados</h3>
+                <p class="number">20</p>
+            </article>
+
+            <article class="card">
+                <h3>Precio promedio</h3>
+                <p class="number">£38.05</p>
+            </article>
+
+            <article class="card">
+                <h3>Precio mínimo</h3>
+                <p class="number">£13.99</p>
+            </article>
+
+            <article class="card">
+                <h3>Precio máximo</h3>
+                <p class="number">£57.25</p>
+            </article>
+
+        </section>
+
+        <section class="results">
+            <h2>Resultados del análisis</h2>
+
+            <p>Precio mínimo: £13.99</p>
+            <div class="bar"><span style="width: 24.4%"></span></div>
+
+            <p>Precio promedio: £38.05</p>
+            <div class="bar"><span style="width: 66.4%"></span></div>
+
+            <p>Precio máximo: £57.25</p>
+            <div class="bar"><span style="width: 100%"></span></div>
+        </section>
+
+        <section class="results">
+            <h2>Conoce más sobre el proyecto</h2>
+            <p>
+                Consulta cómo se desarrolló el análisis y cuáles fueron
+                las herramientas utilizadas.
+            </p>
+
+            <button onclick="mostrarDetalles()">
+                Ver detalles del proyecto
+            </button>
+
+            <div id="details">
+                <h3>Herramientas y procesos</h3>
+                <ul>
+                    <li>Python para la extracción y análisis de datos.</li>
+                    <li>Web scraping para recopilar la información.</li>
+                    <li>Git y GitHub para el control de versiones.</li>
+                    <li>Pruebas automatizadas con GitHub Actions.</li>
+                    <li>Despliegue continuo mediante GitHub Pages.</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        Proyecto académico - Programación para Análisis de Datos
+    </footer>
+
+    <script>
+        function mostrarDetalles() {
+            const detalles = document.getElementById("details");
+
+            if (detalles.style.display === "block") {
+                detalles.style.display = "none";
+            } else {
+                detalles.style.display = "block";
+            }
+        }
+    </script>
+
 </body>
 </html>
